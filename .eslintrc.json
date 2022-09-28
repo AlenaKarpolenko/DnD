@@ -1,50 +1,18 @@
-
-
-
 {
-  "env": {
-      "browser": true,
-      "es2021": true
-  },
-  "extends": [
-      "airbnb-base"
-  ],
-  "parserOptions": {
-      "ecmaVersion": "latest",
-      "sourceType": "module"
-  },
-  "rules": {
+    "extends": "airbnb-base",
+    "env": {
+       "es6": true,
+       "browser": true,
+       "jest": true
+    },
+    "rules": {
+        "no-console": "off",
+        "no-tabs": ["error", { "allowIndentationTabs": true }],
+        "no-mixed-spaces-and-tabs": 0,
       "no-restricted-syntax": [
-          "error",
-          "LabeledStatement",
-          "WithStatement"
-      ],
-      "no-undef": [
-          "off"
-      ],
-      "class-methods-use-this": [
-          "off"
-      ],
-      "no-unused-expressions": [
-          "off"
-      ],
-      "no-unused-vars": [
-          "off"
-      ],
-      "import/no-extraneous-dependencies": [
-          "warn"
-      ],
-      "no-new": [
-          "warn"
-      ],
-      "no-param-reassign": [
-          "warn"
-      ],
-      "guard-for-in": [
-          "warn"
-      ],
-      "no-shadow": [
-          "warn"
+        "error",
+        "LabeledStatement",
+        "WithStatement"
       ]
+    }
   }
-}
