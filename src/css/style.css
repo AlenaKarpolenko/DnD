@@ -1,70 +1,81 @@
-* {
-    cursor: none;
-  }
+p {
+  color: black;
+}
 
-  body {
-    color: #bcbbb6;
-  }
-  p{
-    font-size: 24px;
-    color: black;
-  }
+.file-container {
+  width: 200px;
+  height: 40px;
+  position: relative;
+}
 
-  span{
-  color: red;
-  font-size: 32px;
-  }
+.overlapped {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0; margin: 0;
+  opacity: 0.1;
+  width: 100%;
+}
 
-  h1{
-    text-align: center;
-    color: red;
-  }
-  .wrapper{
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+.overlap {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0; margin: 0;
+  width: 100%;
+  background: #eee;
+  border-radius: 5px;
+  line-height: 40px;
+  text-align: center;
+}
 
-  }
-  .header{
-    display: flex;
-    flex-direction: column;
-  }
+.text-preview {
+  height: 200px;
+  width: 100%;
+  border: 1px dashed black;
+  border-radius: 5px;
+}
 
-  .score{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.drop-area {
+  height: 200px;
+  width: 100%;
+  border: 1px dashed red;
+  border-radius: 5px;
+}
 
-  .field {
-    display: flex;
-    width: 100%;
-  }
 
-  .cell {
-    width: 115px;
-    height: 115px;
-    background-color: yellow;
-    background-repeat: no-repeat;
-    margin: 3px;
-    border: 2px solid blue;
-  }
+.items {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+.items-item {
+  border: 1px solid #999;
+  padding: 10px;
+  margin-bottom: -1px;;
+  cursor: pointer;
+  list-style-type: none;
+}
+.items-item:first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.items-item:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.items-item.dragged {
+  border-radius: 10px;
+  position: absolute;
+  z-index: 999;
+  pointer-events: none;
+  background: #fff;
+}
 
-  .goblin {
-    width: 112px;
-    height: 112px;
-    background-image: url('../img/goblin.png');
-    background-repeat: no-repeat;
-  }
+.items-area {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
 
-  .cursor {
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    background-image: url('../img/hammer.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    pointer-events: none;
-  }
+.bottom-space {
+  margin-bottom: 20px;
+}
