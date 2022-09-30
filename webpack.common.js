@@ -42,7 +42,7 @@ module.exports = {
       // `...`,
       new CssMinimizerPlugin(),
     ],
-  },  
+  },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
@@ -52,6 +52,6 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css",
     }),
-    new MiniCssExtractPlugin(),
+    //new MiniCssExtractPlugin(),
   ],
 };
