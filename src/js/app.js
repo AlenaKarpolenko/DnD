@@ -1,7 +1,6 @@
-import Layout from './Layout';
-import Trello from './Trello';
+import TicketsWidget from './TicketsWidget';
 
-const layout = new Layout();
-const trello = new Trello(layout);
+const widget = new TicketsWidget();
 
-trello.init();
+widget.bindToDOM(document.querySelector('.container'));
+widget.init();

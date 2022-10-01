@@ -1,13 +1,14 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  target: "web",
+  target: 'web',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "",
+    path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'assets/[name][hash][ext]',
+    publicPath: '',
+    clean: true,
   },
   module: {
     rules: [
@@ -15,43 +16,46 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
           },
         ],
       },
       {
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, 'css-loader',
+        ],
       },
       {
-        test: /\.(svg|jpg|jpeg|png|gif|txt)$/,
-        type: "asset/resource",
+        test: /\.(ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
       },
-    ],
-  },
-  optimization: {
-    minimizer: [
-      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
-      // `...`,
-      new CssMinimizerPlugin(),
+      {
+        test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(txt)$/,
+        type: 'asset/resource',
+      },
     ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html",
+      favicon: './src/img/favicon.png',
+      template: './src/index.html',
+      filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css",
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
-    //new MiniCssExtractPlugin(),
   ],
 };
