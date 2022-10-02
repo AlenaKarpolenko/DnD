@@ -1,6 +1,5 @@
-import TicketsWidget from './TicketsWidget';
+/* eslint-disable import/extensions */
+import Widget from './Widget';
 
-const widget = new TicketsWidget();
-
-widget.bindToDOM(document.querySelector('.container'));
-widget.init();
+const helpDesk = new Widget(document.querySelector('.container'));
+helpDesk.bindToDOM();
